@@ -1,6 +1,6 @@
 # automodel
 
-`automodel` is a free and open source automated modeling R language package designed to help model developers improve model development efficiency and enable many people with no background in data science to complete the modeling work in a short time.Let them focus more on the problem itself and allocate more time to decision-making.
+`automodel` is a free and open source automated modeling R package designed to help model developers improve model development efficiency and enable many people with no background in data science to complete the modeling work in a short time.Let them focus more on the problem itself and allocate more time to decision-making.
 
 `automodel` covers various tools such as data preprocessing, variable processing/derivation, variable screening/dimensionality reduction, modeling, data analysis, data visualization, model evaluation, strategy analysis, etc. It is a set of customized "core" tool kit for model developers.
 
