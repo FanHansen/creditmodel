@@ -1,10 +1,10 @@
-Package: creditmodel
+Package: automodel
 Version: 0.1.1
 Date: 2019-04-05
-Title: Functions and tools designed to develop credit risk models
+Title: Automated Modeling
 Authors@R: c(person(given = "Dong", family = "Fan",email = "fdp@pku.edu.cn",role = c("aut", "cre")))
 Maintainer: Dongping Fan <fdp@pku.edu.cn> 
-Description: CreditModel package is a set of integrated tools designed to help you be more productive and easier develop credit risk models, such as traditional scorecard based on logistic regression, machine learning models based on GBDT and XGboost.It includes some useful and efficient functions for automatic data cleaning, variable derivation, data analysis, feature selection, scorecard building, data visualization and a variety of robust tools for binning,one-hot-encoding,de-one-hot-encoding, IV\PSI\K-S\Lift\Gini caculating and ploting. It also provides some functions for vintage analysis,delinquency.
+Description: automodel is a free and open source automated modeling R package designed to help model developers improve model development efficiency and enable many people with no background in data science to complete the modeling work in a short time.Let them focus more on the problem itself and allocate more time to decision-making.automodel covers various tools such as data preprocessing, variable processing/derivation, variable screening/dimensionality reduction, modeling, data analysis, data visualization, model evaluation, strategy analysis, etc. automodel is suitable for machine learning automated modeling of classification targets
 Depends: R(>= 3.3.0)
 Imports: data.table,
  dplyr,
@@ -24,12 +24,12 @@ Imports: data.table,
  sqldf,
  stringr
 Suggests: knitr
-ByteCompile: true
 VignetteBuilder: knitr
-URL: https://github.com/FanHansen/creditmodel 
-BugReports: https://github.com/FanHansen/creditmodel/issues
+URL: https://github.com/FanHansen/automodel 
+BugReports: https://github.com/FanHansen/automodel/issues
 Encoding: UTF-8
-LazyData: true
+ByteCompile: yes
+LazyData: yes
 LazyLoad: yes
 License: AGPL-3
 RoxygenNote: 6.1.1
