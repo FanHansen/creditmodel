@@ -1,0 +1,21 @@
+Package: creditmodel
+Version: 1.1.2
+Date: 2019-08-17
+Title: Build Binary Classification Models in One Integrated Offering
+Authors@R: c(person(given = "Dongping", family = "Fan",email = "fdp@pku.edu.cn",role = c("aut", "cre")))
+Maintainer: Dongping Fan <fdp@pku.edu.cn> 
+Description: 
+  Provides a toolkit for building predictive models in one integrated offering. Contains infrastructure functionalities such as data exploration and preparation, missing values treatment, outliers treatment, variable derivation, variable selection, dimensionality reduction, grid search for hyperparameters, data mining and visualization, model evaluation, strategy analysis etc. 'creditmodel' is designed to make the development of binary classification models (machine learning based models as well as credit scorecard) simpler and faster. 
+  The references including: 
+     1.Anderson, R. (2007). The credit scoring toolkit: Theory and practice for retail credit risk management and decision automation. 
+	 2.Find, S. (2012, ISBN13: 9780230347762). Credit scoring, response modelling and insurance rating:A practical guide to forecasting consumer behaviour.  
+Depends: R(>= 3.3.0)
+Imports: data.table,xgboost,dplyr,glmnet,gridExtra,ggplot2,gbm,randomForest,car,foreach,doParallel,ggcorrplot,pmml,XML,rpart, sqldf,stringr
+Suggests: knitr,testthat
+VignetteBuilder: knitr
+Encoding: UTF-8
+ByteCompile: yes
+LazyData: yes
+LazyLoad: yes
+License: AGPL-3
+RoxygenNote: 6.1.1
