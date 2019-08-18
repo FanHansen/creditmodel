@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Filtering Low Variance Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for low_variance_filter {creditmodel}"><tr><td>low_variance_filter {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Filtering Low Variance Variables</h2>
+
+<h3>Description</h3>
+
+<p><code>low_variance_filter</code> is the function for filtering low variance variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+low_variance_filter(dat, lvp = 0.97, note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>lvp</code></td>
+<td>
+<p>The maximum percent of unique values (including NAs).</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical.Outputs info.Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat = low_variance_filter(lendingclub[1:1000, ], lvp = 0.9)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

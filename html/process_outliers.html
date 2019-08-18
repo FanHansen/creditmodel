@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Outliers Treatment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for process_outliers {creditmodel}"><tr><td>process_outliers {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Outliers Treatment</h2>
+
+<h3>Description</h3>
+
+<p><code>outliers_kmeans_lof</code> is for outliers detection and treatment using Kmeans and Local Outlier Factor (lof)
+<code>process_outliers</code> is a simpler wrapper for <code>outliers_kmeans_lof</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+process_outliers(dat, target, ex_cols = NULL, kc = 3, kn = 5,
+  x_list = NULL, parallel = FALSE, note = FALSE, process = TRUE,
+  save_data = FALSE, file_name = NULL, dir_path = tempdir())
+
+outliers_kmeans_lof(dat, x, target = NULL, kc = 3, kn = 5,
+  note = FALSE, process = TRUE, save_data = FALSE,
+  file_name = NULL, dir_path = tempdir())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>Dataset with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>kc</code></td>
+<td>
+<p>Number of  clustering centers for Kmeans</p>
+</td></tr>
+<tr valign="top"><td><code>kn</code></td>
+<td>
+<p>Number of neighbors for LOF.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>process</code></td>
+<td>
+<p>Logical, process outliers, not just analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical. If TRUE, save outliers analysis file to the specified folder at <code>dir_path</code></p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The file name for periodically saved outliers analysis file. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved outliers analysis file. Default is &quot;./variable&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of variable to process.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with outliers process to all the variables.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat_out = process_outliers(UCICreditCard[1:10000,],
+                          target = "default.payment.next.month",
+                          ex_cols = "date$", kc = 3, kn = 10, parallel = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

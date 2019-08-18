@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Missing Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for analysis_nas {creditmodel}"><tr><td>analysis_nas {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Missing Analysis</h2>
+
+<h3>Description</h3>
+
+<p>#' <code>analysis_nas</code> is for understanding the reason for missing data and understand distribution of missing data so we can categorise it as: 
+</p>
+
+<ul>
+<li><p> Missing completely at random(MCAR)
+</p>
+</li>
+<li><p> MMissing at random(MAR), or
+</p>
+</li>
+<li><p> Missing not at random, also known as IM. 
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+analysis_nas(dat, class_var = FALSE, nas_rate = NULL, na_vars = NULL,
+  mat_nas_shadow = NULL, dt_nas_random = NULL, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>class_var</code></td>
+<td>
+<p>Logical, nas analysis of the nominal variables. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>nas_rate</code></td>
+<td>
+<p>A list contains nas rate of each variable.</p>
+</td></tr>
+<tr valign="top"><td><code>na_vars</code></td>
+<td>
+<p>Names of variables which contain nas.</p>
+</td></tr>
+<tr valign="top"><td><code>mat_nas_shadow</code></td>
+<td>
+<p>A shadow matrix of variables which contain nas.</p>
+</td></tr>
+<tr valign="top"><td><code>dt_nas_random</code></td>
+<td>
+<p>A data.frame with random nas imputation.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with outliers analysis for each variable.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

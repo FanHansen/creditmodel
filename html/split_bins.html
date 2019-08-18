@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: split_bins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for split_bins {creditmodel}"><tr><td>split_bins {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>split_bins</h2>
+
+<h3>Description</h3>
+
+<p><code>split_bins</code> is  for binning using breaks.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+split_bins(dat, x, breaks = NULL, bins_no = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of an independent variable.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks</code></td>
+<td>
+<p>Breaks for binning.</p>
+</td></tr>
+<tr valign="top"><td><code>bins_no</code></td>
+<td>
+<p>Number the generated bins. Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with Bined x.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+bins = split_bins(dat = UCICreditCard,
+x = "PAY_AMT1", breaks = NULL, bins_no = TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

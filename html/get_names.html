@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get Variable Names</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_names {creditmodel}"><tr><td>get_names {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get Variable Names</h2>
+
+<h3>Description</h3>
+
+<p><code>get_names</code> is  for getting names of particular classes of variables
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_names(dat, types = c("logical", "factor", "character", "numeric",
+  "integer", "double", "Date", "POSIXlt", "POSIXct", "POSIXt"),
+  ex_cols = NULL, get_ex = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>types</code></td>
+<td>
+<p>The class or types of variables which names to get. Default: c('numeric', 'integer', 'double')</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>get_ex</code></td>
+<td>
+<p>Logical ,if TRUE, return a list contains names of excluded variables.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list contains names of variables
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_x_list.html">get_x_list</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x_list = get_names(dat = UCICreditCard, types = c('factor', 'character'),
+ex_cols = c("default.payment.next.month","ID$|_date$"), get_ex = FALSE)
+x_list = get_names(dat = UCICreditCard, types = c('numeric', 'character', "integer"),
+ex_cols = c("default.payment.next.month", "ID$|SEX "), get_ex = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

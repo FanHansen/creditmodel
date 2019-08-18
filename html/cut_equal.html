@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generating Initial Equal Size Sample Bins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cut_equal {creditmodel}"><tr><td>cut_equal {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generating Initial Equal Size Sample Bins</h2>
+
+<h3>Description</h3>
+
+<p><code>cut_equal</code> is used to generate initial breaks for equal frequency binning.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cut_equal(dat_x, g = 10, sp_values = list(-1, "Missing"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat_x</code></td>
+<td>
+<p>A vector of an variable x.</p>
+</td></tr>
+<tr valign="top"><td><code>g</code></td>
+<td>
+<p>numeric, number of initial bins for equal_bins.</p>
+</td></tr>
+<tr valign="top"><td><code>sp_values</code></td>
+<td>
+<p>a list of special value. Default: list(-1, &quot;Missing&quot;)</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_breaks_all.html">get_breaks</a></code>, <code><a href="get_breaks_all.html">get_breaks_all</a></code>,<code><a href="get_tree_breaks.html">get_tree_breaks</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#equal sample size breaks
+equ_breaks = cut_equal(dat = UCICreditCard[, "PAY_AMT2"], g = 10)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

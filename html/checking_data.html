@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Checking Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for checking_data {creditmodel}"><tr><td>checking_data {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Checking Data</h2>
+
+<h3>Description</h3>
+
+<p><code>checking_data</code>  cheking dat before processing.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+checking_data(dat = NULL, target = NULL, occur_time = NULL,
+  note = FALSE, pos_flag = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical.Outputs info.Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>The value of positive class of target variable, default: &quot;1&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.frame
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat = checking_data(dat = UCICreditCard, target = "default.payment.next.month")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

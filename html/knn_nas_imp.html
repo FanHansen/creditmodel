@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Imputate nas using KNN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for knn_nas_imp {creditmodel}"><tr><td>knn_nas_imp {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Imputate nas using KNN</h2>
+
+<h3>Description</h3>
+
+<p>This function is not intended to be used by end user.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+knn_nas_imp(dat, x, nas_rate = NULL, mat_nas_shadow = NULL,
+  dt_nas_random = NULL, k = 10, scale = FALSE, method = "median")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of variable to process.</p>
+</td></tr>
+<tr valign="top"><td><code>nas_rate</code></td>
+<td>
+<p>A list contains nas rate of each variable.</p>
+</td></tr>
+<tr valign="top"><td><code>mat_nas_shadow</code></td>
+<td>
+<p>A shadow matrix of variables which contain nas.</p>
+</td></tr>
+<tr valign="top"><td><code>dt_nas_random</code></td>
+<td>
+<p>A data.frame with random nas imputation.</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>Number of neighbors of each obs which x is missing.</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>Logical.Standardization of variable.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>The methods of imputation by knn.&quot;median&quot; is knn imputation by k neighbors median.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

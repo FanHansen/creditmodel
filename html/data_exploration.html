@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Data Exploration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for data_exploration {creditmodel}"><tr><td>data_exploration {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Data Exploration</h2>
+
+<h3>Description</h3>
+
+<p>#'The <code>data_exploration</code> includes both univariate and bivariate analysis and ranges from univariate statistics and frequency distributions, to correlations, cross-tabulation and characteristic analysis.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+data_exploration(dat, target = NULL, save_data = FALSE,
+  file_name = NULL, dir_path = tempdir())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical. If TRUE, save  files to the specified folder at <code>dir_path</code></p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The file name for periodically saved outliers analysis file. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved outliers analysis file. Default is tempdir().</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list contains both categrory and numeric variable analysis.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+data_ex = data_exploration(dat = lendingclub[1:1000,],target = "loan_status")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

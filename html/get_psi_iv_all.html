@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculate IV &amp; PSI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_psi_iv_all {creditmodel}"><tr><td>get_psi_iv_all {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculate IV &amp; PSI</h2>
+
+<h3>Description</h3>
+
+<p><code>get_iv_psi</code>  is used to calculate Information Value (IV)  and Population Stability Index (PSI) of an independent variable.
+<code>get_iv_psi_all</code> can loop through IV &amp; PSI for all specified independent variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_psi_iv_all(dat, dat_test = NULL, x_list = NULL, target,
+  ex_cols = NULL, pos_flag = NULL, breaks_list = NULL,
+  occur_time = NULL, oot_pct = 0.7, equal_bins = FALSE,
+  tree_control = NULL, bins_control = NULL, bins_total = FALSE,
+  best = TRUE, g = 10, as_table = TRUE, note = FALSE,
+  parallel = FALSE, bins_no = TRUE)
+
+get_psi_iv(dat, dat_test = NULL, x, target, pos_flag = NULL,
+  breaks = NULL, breaks_list = NULL, occur_time = NULL,
+  oot_pct = 0.7, equal_bins = FALSE, tree_control = NULL,
+  bins_control = NULL, bins_total = FALSE, best = TRUE, g = 10,
+  as_table = TRUE, note = FALSE, bins_no = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_test</code></td>
+<td>
+<p>A data.frame of test data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>The value of positive class of target variable, default: &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks_list</code></td>
+<td>
+<p>A table containing a list of splitting points for each independent variable. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.</p>
+</td></tr>
+<tr valign="top"><td><code>oot_pct</code></td>
+<td>
+<p>Percentage of observations retained for overtime test (especially to calculate PSI). Defualt is 0.7</p>
+</td></tr>
+<tr valign="top"><td><code>equal_bins</code></td>
+<td>
+<p>Logical, generates initial breaks for equal frequency binning.</p>
+</td></tr>
+<tr valign="top"><td><code>tree_control</code></td>
+<td>
+<p>Parameters of using Decision Tree to segment initial breaks. See detials: <code><a href="get_tree_breaks.html">get_tree_breaks</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>bins_control</code></td>
+<td>
+<p>Parameters  used to control binning.  See detials: <code><a href="select_best_class.html">select_best_class</a></code>, <code><a href="select_best_class.html">select_best_breaks</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>bins_total</code></td>
+<td>
+<p>Logical, total sum for each variable.</p>
+</td></tr>
+<tr valign="top"><td><code>best</code></td>
+<td>
+<p>Logical, merge initial breaks to get optimal breaks for binning.</p>
+</td></tr>
+<tr valign="top"><td><code>g</code></td>
+<td>
+<p>Number of initial breakpoints for equal frequency binning.</p>
+</td></tr>
+<tr valign="top"><td><code>as_table</code></td>
+<td>
+<p>Logical, output results in a table. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>bins_no</code></td>
+<td>
+<p>Logical, add serial numbers to bins. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of an independent variable.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks</code></td>
+<td>
+<p>Splitting points for an independent variable. Default is NULL.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_iv_all.html">get_iv</a></code>,<code><a href="get_iv_all.html">get_iv_all</a></code>,<code><a href="get_psi_all.html">get_psi</a></code>,<code><a href="get_psi_all.html">get_psi_all</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+iv_list = get_psi_iv_all(dat = UCICreditCard[1:1000, ],
+x_list = names(UCICreditCard)[3:5], equal_bins = TRUE,
+target = "default.payment.next.month", ex_cols = "ID|apply_date")
+get_psi_iv(UCICreditCard, x = "PAY_3",
+target = "default.payment.next.month",bins_total = TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

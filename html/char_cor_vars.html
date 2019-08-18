@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Cramer's V matrix between categorical variables.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for char_cor_vars {creditmodel}"><tr><td>char_cor_vars {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Cramer's V matrix between categorical variables.</h2>
+
+<h3>Description</h3>
+
+<p><code>char_cor_vars</code> is function for calculating Cramer's V matrix between categorical variables.
+<code>char_cor</code> is function for calculating the correlation coefficient between variables by cremers 'V
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+char_cor_vars(dat, x)
+
+char_cor(dat, x_list = NULL, ex_cols = "date$", parallel = FALSE,
+  note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of variable to process.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical. Outputs info. Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list contains correlation index of x with other variables in dat.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+char_x_list = get_names(dat = UCICreditCard,
+types = c('factor', 'character'),
+ex_cols = "ID$|date$|default.payment.next.month$", get_ex = FALSE)
+ char_cor(dat = UCICreditCard[char_x_list])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

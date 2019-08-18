@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Getting the breaks for terminal nodes from decision tree</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_tree_breaks {creditmodel}"><tr><td>get_tree_breaks {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Getting the breaks for terminal nodes from decision tree</h2>
+
+<h3>Description</h3>
+
+<p><code>get_tree_breaks</code> is for generating initial braks by decision tree for a numerical or nominal variable.
+The <code>get_breaks</code> function is a simpler wrapper for <code>get_tree_breaks</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_tree_breaks(dat, x, target, pos_flag = NULL, tree_control = list(p
+  = 0.02, cp = 0.000001, xval = 5, maxdepth = 10), sp_values = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>name of variable to cut breaks by tree.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>The value of positive class of target variable, default: &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>tree_control</code></td>
+<td>
+<p>the list of parameters to control cutting initial breaks by decision tree.
+</p>
+
+<ul>
+<li> <p><code>p</code> the minimum percent of observations in any terminal &lt;leaf&gt; node. 0 &lt; p&lt; 1; 0.01 to 0.1 usually work.
+</p>
+</li>
+<li> <p><code>cp</code> complexity parameter. the larger, the more conservative the algorithm will be. 0 &lt; cp&lt; 1 ; 0.0001 to 0.0000001 usually work.
+</p>
+</li>
+<li> <p><code>xval</code> number of cross-validations.Default: 5
+</p>
+</li>
+<li> <p><code>max_depth</code> maximum depth of a tree. Default: 10
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>sp_values</code></td>
+<td>
+<p>A list of special value. Default: NULL.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_breaks_all.html">get_breaks</a></code>, <code><a href="get_breaks_all.html">get_breaks_all</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#tree breaks
+tree_control = list(p = 0.02, cp = 0.000001, xval = 5, maxdepth = 10)
+tree_breaks = get_tree_breaks(dat = UCICreditCard, x = "MARRIAGE",
+target = "default.payment.next.month", tree_control = tree_control)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

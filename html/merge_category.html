@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Merge Category</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for merge_category {creditmodel}"><tr><td>merge_category {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Merge Category</h2>
+
+<h3>Description</h3>
+
+<p><code>merge_category</code> is  for merging   category of nominal variables which number of categories is more than m or percent of samples in any categories is less than p.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+merge_category(dat, ex_cols = "date$|id$|time$|DATA$|ID$|TIME$",
+  p = 0.01, m = 10, note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>The minimum percent of samples in a category to merge.</p>
+</td></tr>
+<tr valign="top"><td><code>m</code></td>
+<td>
+<p>The minimum number of categories.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with merged category variables.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#merge_catagory
+dat =  merge_category(lendingclub,ex_cols = "id$|_d$")
+char_list = get_names(dat = dat,types = c('factor', 'character'),
+ex_cols = "id$|_d$", get_ex = FALSE)
+str(dat[,char_list])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

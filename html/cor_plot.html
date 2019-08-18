@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Correlation Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cor_plot {creditmodel}"><tr><td>cor_plot {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Correlation Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>cor_plot</code> is for ploting correlation matrix
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cor_plot(dat, dir_path = tempdir(), x_list = NULL, gtitle = NULL,
+  save_data = FALSE, plot_show = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved graphic files. Default is &quot;./model/LR&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>gtitle</code></td>
+<td>
+<p>The title of the graph &amp; The name for periodically saved graphic file. Default is &quot;_correlation_of_variables&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>plot_show</code></td>
+<td>
+<p>Logical, show graph in current graphic device.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+train_test &lt;- train_test_split(UCICreditCard,
+split_type = "Random", prop = 0.8,save_data = FALSE)
+dat_train = train_test$train
+dat_test = train_test$test
+cor_plot(dat_train[,8:12],plot_show = TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

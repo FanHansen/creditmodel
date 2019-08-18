@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: UCI Credit Card data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for UCICreditCard {creditmodel}"><tr><td>UCICreditCard {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>UCI Credit Card data</h2>
+
+<h3>Description</h3>
+
+<p>This research aimed at the case of customers's default payments in Taiwan and compares the predictive accuracy of probability of default among six data mining methods.
+This research employed a binary variable, default payment (Yes = 1, No = 0), as the response variable. This study reviewed the literature and used the following 24 variables as explanatory variables
+</p>
+
+
+<h3>Format</h3>
+
+<p>A data frame with 30000 rows and 26 variables.</p>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> ID: Customer id
+</p>
+</li>
+<li><p> apply_date: This is a fake occur time. 
+</p>
+</li>
+<li><p> LIMIT_BAL: Amount of the given credit (NT dollar): it includes both the individual consumer credit and his/her family (supplementary) credit. 
+</p>
+</li>
+<li><p> SEX:  Gender (male; female). 
+</p>
+</li>
+<li><p> EDUCATION: Education (1 = graduate school; 2 = university; 3 = high school; 4 = others).
+</p>
+</li>
+<li><p> MARRIAGE: Marital status (1 = married; 2 = single; 3 = others). 
+</p>
+</li>
+<li><p> AGE: Age (year)
+History of past payment. We tracked the past monthly payment records (from April to September, 2005) as follows:
+</p>
+</li>
+<li><p> PAY_0: the repayment status in September
+</p>
+</li>
+<li><p> PAY_2: the repayment status in August
+</p>
+</li>
+<li><p> PAY_3: ...
+</p>
+</li>
+<li><p> PAY_4: ...
+</p>
+</li>
+<li><p> PAY_5: ...
+</p>
+</li>
+<li><p> PAY_6: the repayment status in April
+The measurement scale for the repayment status is: -1 = pay duly; 1 = payment delay for one month; 2 = payment delay for two months;...;8 = payment delay for eight months; 9 = payment delay for nine months and above. 
+Amount of bill statement (NT dollar)
+</p>
+</li>
+<li><p> BILL_AMT1: amount of bill statement in September
+</p>
+</li>
+<li><p> BILL_AMT2: mount of bill statement in August
+</p>
+</li>
+<li><p> BILL_AMT3: ...
+</p>
+</li>
+<li><p> BILL_AMT4: ...
+</p>
+</li>
+<li><p> BILL_AMT5: ...
+</p>
+</li>
+<li><p> BILL_AMT6: amount of bill statement in April
+Amount of previous payment (NT dollar)
+</p>
+</li>
+<li><p> PAY_AMT1: amount paid in September
+</p>
+</li>
+<li><p> PAY_AMT2: amount paid in August
+</p>
+</li>
+<li><p> PAY_AMT3: ....
+</p>
+</li>
+<li><p> PAY_AMT4: ...
+</p>
+</li>
+<li><p> PAY_AMT5: ...
+</p>
+</li>
+<li><p> PAY_AMT6: amount paid in April
+</p>
+</li>
+<li><p> default.payment.next.month: default payment (Yes = 1, No = 0), as the response variable
+</p>
+</li></ul>
+
+
+
+<h3>Source</h3>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">http://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="lendingclub.html">lendingclub</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

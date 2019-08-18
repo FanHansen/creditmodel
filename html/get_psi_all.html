@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculate Population Stability Index (PSI) 'get_psi' is used...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_psi_all {creditmodel}"><tr><td>get_psi_all {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculate Population Stability Index (PSI)
+<code>get_psi</code> is used to calculate Population Stability Index (PSI)  of an independent variable.
+<code>get_psi_all</code> can loop through PSI for all specified independent variables.</h2>
+
+<h3>Description</h3>
+
+<p>Calculate Population Stability Index (PSI)
+<code>get_psi</code> is used to calculate Population Stability Index (PSI)  of an independent variable.
+<code>get_psi_all</code> can loop through PSI for all specified independent variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_psi_all(dat, x_list = NULL, dat_test = NULL, breaks_list = NULL,
+  occur_time = NULL, start_date = NULL, cut_date = NULL,
+  oot_pct = 0.7, pos_flag = NULL, parallel = FALSE, ex_cols = NULL,
+  as_table = FALSE, g = 10, bins_no = TRUE, note = FALSE)
+
+get_psi(dat, x, dat_test = NULL, occur_time = NULL,
+  start_date = NULL, cut_date = NULL, pos_flag = NULL,
+  breaks = NULL, breaks_list = NULL, oot_pct = 0.7, g = 10,
+  as_table = TRUE, note = FALSE, bins_no = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_test</code></td>
+<td>
+<p>A data.frame of test data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks_list</code></td>
+<td>
+<p>A table containing a list of splitting points for each independent variable. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.</p>
+</td></tr>
+<tr valign="top"><td><code>start_date</code></td>
+<td>
+<p>The earliest occurrence time of observations.</p>
+</td></tr>
+<tr valign="top"><td><code>cut_date</code></td>
+<td>
+<p>Time points for spliting data sets, e.g. : spliting Actual and Expected data sets.</p>
+</td></tr>
+<tr valign="top"><td><code>oot_pct</code></td>
+<td>
+<p>Percentage of observations retained for overtime test (especially to calculate PSI). Defualt is 0.7</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>Value of positive class, Default is &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>Names of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>as_table</code></td>
+<td>
+<p>Logical, output results in a table. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>g</code></td>
+<td>
+<p>Number of initial breakpoints for equal frequency binning.</p>
+</td></tr>
+<tr valign="top"><td><code>bins_no</code></td>
+<td>
+<p>Logical, add serial numbers to bins. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of an independent variable.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks</code></td>
+<td>
+<p>Splitting points for an independent variable. Default is NULL.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>PSI Rules for evaluating the stability of a predictor
+Less than 0.02: Very stable
+0.02 to 0.1: Stable
+0.1 to 0.2: Unstable
+0.2 to 0.5] : Change
+more than 0.5: Great change
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_iv_all.html">get_iv</a></code>,<code><a href="get_iv_all.html">get_iv_all</a></code>,<code><a href="get_psi_all.html">get_psi</a></code>,<code><a href="get_psi_all.html">get_psi_all</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#  dat_test is null
+get_psi(dat = UCICreditCard, x = "PAY_3", occur_time = "apply_date")
+# dat_test is not all
+# train_test split
+train_test = train_test_split(dat = UCICreditCard, prop = 0.7, split_type = "OOT",
+                             occur_time = "apply_date", start_date = NULL, cut_date = NULL,
+                            save_data = FALSE, note = FALSE)
+dat_ex = train_test$train
+dat_ac = train_test$test
+# generate psi table
+get_psi(dat = dat_ex, dat_test = dat_ac, x = "PAY_3",
+       occur_time = "apply_date", bins_no = TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

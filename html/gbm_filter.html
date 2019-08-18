@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Select Features using GBM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for gbm_filter {creditmodel}"><tr><td>gbm_filter {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Select Features using GBM</h2>
+
+<h3>Description</h3>
+
+<p><code>gbm_filter</code>  is for selecting important features using GBM.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gbm_filter(dat, target = NULL, x_list = NULL, ex_cols = NULL,
+  pos_flag = NULL, GBM.params = gbm_params(), cores_num = 2,
+  vars_name = TRUE, note = TRUE, save_data = FALSE,
+  file_name = NULL, dir_path = tempdir(), seed = 46, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>The value of positive class of target variable, default: &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>GBM.params</code></td>
+<td>
+<p>Parameters of GBM.The complete list of parameters is available at: <code><a href="../../gbm/html/gbm.html">gbm</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>cores_num</code></td>
+<td>
+<p>The number of CPU cores to use.</p>
+</td></tr>
+<tr valign="top"><td><code>vars_name</code></td>
+<td>
+<p>Logical, output a list of filtered variables or table with detailed IV and PSI value of each variable. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results results in locally specified folder. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved results files.  Default is &quot;Featrue_importance_GBDT&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved results files.  Default is &quot;./variable&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>Random number seed. Default is 46.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters to pass to gbdt_params.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Selected variables.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="psi_iv_filter.html">psi_iv_filter</a></code>, <code><a href="xgb_filter.html">xgb_filter</a></code>, <code><a href="feature_select_wrapper.html">feature_select_wrapper</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+GBM.params = gbm_params(n.trees = 2, interaction.depth = 2, shrinkage = 0.1,
+                       bag.fraction = 1, train.fraction = 1,
+                       n.minobsinnode = 30,
+                     cv.folds = 2)
+## Not run: 
+ features &lt;- gbm_filter(dat = UCICreditCard[1:1000, c(8:12, 26)],
+         target = "default.payment.next.month",
+      occur_time = "apply_date",
+     GBM.params = GBM.params
+       , vars_name = FALSE)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

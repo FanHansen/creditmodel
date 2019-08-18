@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Train-Test-Split</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for train_test_split {creditmodel}"><tr><td>train_test_split {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Train-Test-Split</h2>
+
+<h3>Description</h3>
+
+<p><code>train_test_split</code> Functions for partition of data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+train_test_split(dat, prop = 0.7, split_type = c("Random", "OOT",
+  "byRow"), occur_time = NULL, cut_date = NULL, start_date = NULL,
+  save_data = FALSE, dir_path = tempdir(), file_name = NULL,
+  note = FALSE, seed = 43)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>prop</code></td>
+<td>
+<p>The percentage of train data samples after the partition.</p>
+</td></tr>
+<tr valign="top"><td><code>split_type</code></td>
+<td>
+<p>Methods for partition.
+</p>
+
+<ul>
+<li><p> &quot;Random&quot; is to split train &amp; test set randomly.
+</p>
+</li>
+<li><p> &quot;OOT&quot; is to split by time for observation over time test.
+</p>
+</li>
+<li><p> &quot;byRow&quot; is to split by rownumbers.
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place. It is used for &quot;OOT&quot; split.</p>
+</td></tr>
+<tr valign="top"><td><code>cut_date</code></td>
+<td>
+<p>Time points for spliting data sets, e.g. : spliting Actual and Expected data sets.</p>
+</td></tr>
+<tr valign="top"><td><code>start_date</code></td>
+<td>
+<p>The earliest occurrence time of observations.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved data file. Default is &quot;./data&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved data file. Default is &quot;dat&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical. Outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>Random number seed. Default is 46.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of indices (train-test)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+train_test &lt;- train_test_split(lendingclub,
+split_type = "OOT", prop = 0.7,
+occur_time = "issue_d", seed = 12, save_data = FALSE)
+dat_train = train_test$train
+dat_test = train_test$test
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Missing Treatment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for process_nas {creditmodel}"><tr><td>process_nas {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Missing Treatment</h2>
+
+<h3>Description</h3>
+
+<p><code>process_nas_var</code> is for missing value analysis and treatment using knn imputation, central impulation and random imputation.
+<code>process_nas</code> is a simpler wrapper for <code>process_nas_var</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+process_nas(dat, x_list = NULL, default_miss = TRUE,
+  class_var = FALSE, parallel = FALSE, ex_cols = NULL,
+  method = "median", note = FALSE, save_data = FALSE,
+  file_name = NULL, dir_path = tempdir(), ...)
+
+process_nas_var(dat = dat, x, default_miss = TRUE, nas_rate = NULL,
+  mat_nas_shadow = NULL, dt_nas_random = NULL, missing_type = NULL,
+  method = "median", note = FALSE, save_data = FALSE,
+  file_name = NULL, dir_path = tempdir(), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>default_miss</code></td>
+<td>
+<p>Logical. If TRUE, assigning the missing values to -1 or &quot;Missing&quot;, otherwise ,processing the missing values according to the results of missing analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>class_var</code></td>
+<td>
+<p>Logical, nas analysis of the nominal variables. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>The methods of imputation by knn.&quot;median&quot; is knn imputation by k neighbors median.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical. If TRUE, save missing analysis to <code>dir_path</code></p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The file name for periodically saved missing analysis file. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved missing analysis file. Default is &quot;./variable&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of variable to process.</p>
+</td></tr>
+<tr valign="top"><td><code>nas_rate</code></td>
+<td>
+<p>A list contains nas rate of each variable.</p>
+</td></tr>
+<tr valign="top"><td><code>mat_nas_shadow</code></td>
+<td>
+<p>A shadow matrix of variables which contain nas.</p>
+</td></tr>
+<tr valign="top"><td><code>dt_nas_random</code></td>
+<td>
+<p>A data.frame with random nas imputation.</p>
+</td></tr>
+<tr valign="top"><td><code>missing_type</code></td>
+<td>
+<p>Type of missing, genereted by code<a href="analysis_nas.html">analysis_nas</a></p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A dat frame with no NAs.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat_na = process_nas(dat = UCICreditCard[1:1000,], default_miss = FALSE,
+target = "default.payment.next.month",
+parallel = FALSE,ex_cols = "ID$" ,method = "median")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

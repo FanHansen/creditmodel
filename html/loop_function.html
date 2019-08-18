@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Loop Function. #' 'loop_function' is an iterator to loop...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for loop_function {creditmodel}"><tr><td>loop_function {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Loop Function.
+#' <code>loop_function</code> is an iterator to loop through</h2>
+
+<h3>Description</h3>
+
+<p>Loop Function.
+#' <code>loop_function</code> is an iterator to loop through
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+loop_function(func = NULL, args = list(data = NULL), x_list = NULL,
+  bind = "rbind", parallel = TRUE, as_list = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>func</code></td>
+<td>
+<p>A function.</p>
+</td></tr>
+<tr valign="top"><td><code>args</code></td>
+<td>
+<p>A list of argauments required by function.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of objects to loop through.</p>
+</td></tr>
+<tr valign="top"><td><code>bind</code></td>
+<td>
+<p>Complie results, &quot;rbind&quot; &amp; &quot;cbind&quot; are available.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing.</p>
+</td></tr>
+<tr valign="top"><td><code>as_list</code></td>
+<td>
+<p>Logical, whether outputs  to be a list.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame or list
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat = UCICreditCard[24:26]
+num_x_list = get_names(dat = dat, types = c('numeric', 'integer', 'double'),
+                      ex_cols = NULL, get_ex = FALSE)
+dat[ ,num_x_list] = loop_function(func = outliers_kmeans_lof, x_list = num_x_list,
+                                   args = list(dat = dat),
+                                   bind = "cbind", as_list = FALSE,
+                                 parallel = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Score Transformation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for score_transfer {creditmodel}"><tr><td>score_transfer {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Score Transformation</h2>
+
+<h3>Description</h3>
+
+<p><code>score_transfer</code> is  for transfer woe to score.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+score_transfer(model, tbl_woe, a = 600, b = 50, file_name = NULL,
+  dir_path = tempdir(), save_data = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>model</code></td>
+<td>
+<p>A data frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>tbl_woe</code></td>
+<td>
+<p>a data.frame with woe variables.</p>
+</td></tr>
+<tr valign="top"><td><code>a</code></td>
+<td>
+<p>Base line of score.</p>
+</td></tr>
+<tr valign="top"><td><code>b</code></td>
+<td>
+<p>Numeric.Increased scores from doubling Odds.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved score file. Default is &quot;dat_score&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved score file.  Default is &quot;./data&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is FALSE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with variables which values transfered to score.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# dataset spliting
+sub = cv_split(UCICreditCard, k = 30)[[1]]
+dat = UCICreditCard[sub,]
+#rename the target variable
+dat = re_name(dat, "default.payment.next.month", "target")
+dat = data_cleansing(dat, target = "target", obs_id = "ID",
+occur_time = "apply_date", miss_values =  list("", -1))
+#train_ test pliting
+train_test &lt;- train_test_split(dat, split_type = "OOT", prop = 0.7,
+                                occur_time = "apply_date")
+dat_train = train_test$train
+dat_test = train_test$test
+#get breaks of all predictive variables
+x_list = c("PAY_0", "LIMIT_BAL", "PAY_AMT5", "EDUCATION", "PAY_3", "PAY_2")
+breaks_list &lt;- get_breaks_all(dat = dat_train, target = "target",
+                              x_list = x_list, occur_time = "apply_date", ex_cols = "ID",
+save_data = FALSE, note = FALSE)
+#woe transforming
+train_woe = woe_trans_all(dat = dat_train,
+                          target = "target",
+                          breaks_list = breaks_list,
+                          woe_name = FALSE)
+test_woe = woe_trans_all(dat = dat_test,
+                       target = "target",
+                         breaks_list = breaks_list,
+                         note = FALSE)
+Formula = as.formula(paste("target", paste(x_list, collapse = ' + '), sep = ' ~ '))
+set.seed(46)
+lr_model = glm(Formula, data = train_woe[, c("target", x_list)], family = binomial(logit))
+#get LR coefficient
+dt_imp_LR = get_logistic_coef(lg_model = lr_model, save_data = FALSE)
+bins_table = get_bins_table_all(dat = dat_train, target = "target",
+                               occur_time = "apply_date",
+                                x_list = x_list,
+                               breaks_list = breaks_list, note = FALSE)
+#score card
+LR_score_card &lt;- get_score_card(lg_model = lr_model, bins_table, target = "target")
+#scoring
+train_pred = dat_train[, c("ID", "apply_date", "target")]
+test_pred = dat_test[, c("ID", "apply_date", "target")]
+train_pred$pred_LR = score_transfer(model = lr_model,
+                                                    tbl_woe = train_woe,
+                                                    save_data = FALSE)[, "score"]
+
+test_pred$pred_LR = score_transfer(model = lr_model,
+tbl_woe = test_woe, save_data = FALSE)[, "score"]
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

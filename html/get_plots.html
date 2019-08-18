@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot Independent Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_plots {creditmodel}"><tr><td>get_plots {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot Independent Variables</h2>
+
+<h3>Description</h3>
+
+<p><code>plot_vars</code> is used for independent variables with target variable ploting.
+<code>get_plots</code> can loop through plots for all specified independent variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_plots(dat_train, dat_test = NULL, x_list = NULL, target = NULL,
+  ex_cols = NULL, breaks_list = NULL, pos_flag = NULL,
+  occur_time = NULL, equal_bins = FALSE, best = TRUE, g = 20,
+  tree_control = NULL, bins_control = NULL, plot_show = TRUE,
+  save_data = FALSE, file_name = NULL, parallel = FALSE,
+  g_width = 8, dir_path = tempdir())
+
+plot_vars(dat_train, x, dat_test = NULL, target = "target",
+  g_width = 8, breaks_list = NULL, pos_flag = list("1", 1, "bad",
+  "positive"), occur_time = NULL, equal_bins = FALSE, best = TRUE,
+  g = 20, tree_control = NULL, bins_control = NULL,
+  plot_show = TRUE, save_data = FALSE, dir_path = tempdir())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat_train</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_test</code></td>
+<td>
+<p>A data.frame of test data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks_list</code></td>
+<td>
+<p>A table containing a list of splitting points for each independent variable. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>Value of positive class, Default is &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.</p>
+</td></tr>
+<tr valign="top"><td><code>equal_bins</code></td>
+<td>
+<p>Logical, generates initial breaks for equal frequency binning.</p>
+</td></tr>
+<tr valign="top"><td><code>best</code></td>
+<td>
+<p>Logical, merge initial breaks to get optimal breaks for binning.</p>
+</td></tr>
+<tr valign="top"><td><code>g</code></td>
+<td>
+<p>Number of initial breakpoints for equal frequency binning.</p>
+</td></tr>
+<tr valign="top"><td><code>tree_control</code></td>
+<td>
+<p>Parameters of using Decision Tree to segment initial breaks. See detials: <code><a href="get_tree_breaks.html">get_tree_breaks</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>bins_control</code></td>
+<td>
+<p>Parameters  used to control binning.  See detials: <code><a href="select_best_class.html">select_best_class</a></code>, <code><a href="select_best_class.html">select_best_breaks</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>plot_show</code></td>
+<td>
+<p>Logical, show model performance in current graphic device. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved data file. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>g_width</code></td>
+<td>
+<p>The width of graphs.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved graphic files.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The name of an independent variable.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+train_test &lt;- train_test_split(UCICreditCard[1:1000,], split_type = "Random",
+ prop = 0.8, save_data = FALSE)
+dat_train = train_test$train
+dat_test = train_test$test
+get_plots(dat_train[, c(8, 26)], dat_test = dat_test[, c(8, 26)],
+target = "default.payment.next.month")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

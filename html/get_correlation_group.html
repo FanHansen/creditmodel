@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_correlation_group</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_correlation_group {creditmodel}"><tr><td>get_correlation_group {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_correlation_group</h2>
+
+<h3>Description</h3>
+
+<p><code>get_correlation_group</code> is funtion for  obtaining highly correlated variable groups.
+<code>select_cor_group</code> is funtion for selecting highly correlated variable group.
+<code>select_cor_list</code> is funtion for selecting highly correlated variable list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_correlation_group(cor_mat, p = 0.8)
+
+select_cor_group(cor_vars)
+
+select_cor_list(cor_vars_list)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cor_mat</code></td>
+<td>
+<p>A correlation matrix of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>Threshold of correlation between features. Default is 0.7.</p>
+</td></tr>
+<tr valign="top"><td><code>cor_vars</code></td>
+<td>
+<p>Correlated variables.</p>
+</td></tr>
+<tr valign="top"><td><code>cor_vars_list</code></td>
+<td>
+<p>List of correlated variable</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of selected variables.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+cor_mat = cor(UCICreditCard[8:20],
+use = "complete.obs", method = "spearman")
+get_correlation_group(cor_mat, p = 0.6 )
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_auc_ks_lambda 'get_auc_ks_lambda' is for get best lambda...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_auc_ks_lambda {creditmodel}"><tr><td>get_auc_ks_lambda {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_auc_ks_lambda
+<code>get_auc_ks_lambda</code> is for get best lambda required in lasso_filter. This function required in <code>lasso_filter</code></h2>
+
+<h3>Description</h3>
+
+<p>get_auc_ks_lambda
+<code>get_auc_ks_lambda</code> is for get best lambda required in lasso_filter. This function required in <code>lasso_filter</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_auc_ks_lambda(lasso_model, x_test, y_test, save_data = FALSE,
+  plot_show = TRUE, file_name = NULL, dir_path = tempdir())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>lasso_model</code></td>
+<td>
+<p>A lasso model genereted by glmnet.</p>
+</td></tr>
+<tr valign="top"><td><code>x_test</code></td>
+<td>
+<p>A matrix of test dataset with x.</p>
+</td></tr>
+<tr valign="top"><td><code>y_test</code></td>
+<td>
+<p>A matrix of y test dataset with y.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>plot_show</code></td>
+<td>
+<p>Logical, if TRUE plot the results. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved results files. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved results files.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Lanmbda values with max K-S and AUC.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="lasso_filter.html">lasso_filter</a></code>, <code><a href="get_sim_sign_lambda.html">get_sim_sign_lambda</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Encode NAs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for null_blank_na {creditmodel}"><tr><td>null_blank_na {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Encode NAs</h2>
+
+<h3>Description</h3>
+
+<p><code>null_blank_na</code> is the function to  replace null ,NULL, blank or other missing vaules with NA.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+null_blank_na(dat, miss_values = NULL, note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame with x and target.</p>
+</td></tr>
+<tr valign="top"><td><code>miss_values</code></td>
+<td>
+<p>Other extreme value might be used to represent missing values, e.g: -9999, -9998. These miss_values will be encoded to -1 or &quot;Missing&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical.Outputs info.Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+datss = null_blank_na(dat = UCICreditCard[1:1000, ], miss_values =list(-1,-2))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

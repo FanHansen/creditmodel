@@ -1,0 +1,129 @@
+%alike%                 Fuzzy String matching
+%islike%                Fuzzy String matching
+PCA_reduce              PCA Dimension Reduction
+UCICreditCard           UCI Credit Card data
+add_variable_process    add_variable_process
+address_varieble        address_varieble
+analysis_nas            Missing Analysis
+analysis_outliers       Outliers Analysis
+as_percent              Percent Format
+auc_value               auc_value 'auc_value' is for get best lambda
+                        required in lasso_filter. This function
+                        required in 'lasso_filter'
+char_cor_vars           Cramer's V matrix between categorical
+                        variables.
+char_to_num             character to number
+checking_data           Checking Data
+city_varieble           city_varieble
+city_varieble_process   Processing of Address Variables
+cor_plot                Correlation Plot
+cos_sim                 cos_sim
+customer_segmentation   Customer Segmentation
+cut_equal               Generating Initial Equal Size Sample Bins
+cv_split                Stratified Folds
+data_cleansing          Data Cleaning
+data_exploration        Data Exploration
+date_cut                Date Time Cut Point
+de_one_hot_encoding     Recovery One-Hot Encoding
+de_percent              Recovery Percent Format
+derived_interval        derived_interval
+derived_partial_acf     derived_partial_acf
+derived_pct             derived_pct
+derived_ts_vars         Derivation of Behavioral Variables
+digits_num              Number of digits
+entry_rate_na           Max Percent of Missing Value
+euclid_dist             euclid_dist
+fast_high_cor_filter    high_cor_filter
+feature_select_wrapper
+                        Feature Selection Wrapper
+fuzzy_cluster_means     Fuzzy Cluster means.
+gbm_filter              Select Features using GBM
+gbm_params              GBM Parameters
+get_auc_ks_lambda       get_auc_ks_lambda 'get_auc_ks_lambda' is for
+                        get best lambda required in lasso_filter. This
+                        function required in 'lasso_filter'
+get_bins_table_all      Table of Binning
+get_breaks_all          Generates Best Breaks for Binning
+get_correlation_group   get_correlation_group
+get_ctree_rules         Parse party ctree rules
+get_iv_all              Calculate Information Value (IV) 'get_iv' is
+                        used to calculate Information Value (IV) of an
+                        independent variable. 'get_iv_all' can loop
+                        through IV for all specified independent
+                        variables.
+get_logistic_coef       get logistic coef
+get_median              get central value.
+get_names               Get Variable Names
+get_nas_random          get_nas_random
+get_plots               Plot Independent Variables
+get_psi_all             Calculate Population Stability Index (PSI)
+                        'get_psi' is used to calculate Population
+                        Stability Index (PSI) of an independent
+                        variable. 'get_psi_all' can loop through PSI
+                        for all specified independent variables.
+get_psi_iv_all          Calculate IV & PSI
+get_score_card          Score Card
+get_shadow_nas          get_shadow_nas
+get_sim_sign_lambda     get_sim_sign_lambda 'get_sim_sign_lambda' is
+                        for get Best lambda required in lasso_filter.
+                        This function required in 'lasso_filter'
+get_tree_breaks         Getting the breaks for terminal nodes from
+                        decision tree
+get_x_list              Get X List.
+is_date                 is_date
+knn_nas_imp             Imputate nas using KNN
+ks_table                ks_table & plot
+ks_value                ks_value
+lasso_filter            Variable selection by LASSO
+lendingclub             Lending Club data
+local_outlier_factor    local_outlier_factor 'local_outlier_factor' is
+                        function for calculating the lof factor for a
+                        data set using knn This function is not
+                        intended to be used by end user.
+loop_function           Loop Function. #' 'loop_function' is an
+                        iterator to loop through
+love_color              love_color
+low_variance_filter     Filtering Low Variance Variables
+lr_params               Logistic Regression & Scorecard Parameters
+merge_category          Merge Category
+min_max_norm            Min Max Normalization
+null_blank_na           Encode NAs
+one_hot_encoding        One-Hot Encoding
+outliers_detection      Outliers Detection 'outliers_detection' is for
+                        outliers detecting using Kmeans and Local
+                        Outlier Factor (lof)
+perf_table              perf_table & plot
+plot_theme              plot_theme
+pred_score              pred_score
+process_nas             Missing Treatment
+process_outliers        Outliers Treatment
+psi_iv_filter           Variable reduction based on Information Value &
+                        Population Stability Index filter
+quick_as_df             List as data.frame quickly
+re_name                 Rename
+reduce_high_cor         Compare the two highly correlated variables
+remove_duplicated       Remove Duplicated Observations
+require_packages        Packages required and intallment
+rf_params               Random Forest Parameters
+rowAny                  Functions for vector operation.
+save_dt                 Save data
+score_transfer          Score Transformation
+select_best_class       Generates Best Binning Breaks
+sim_str                 sim_str
+split_bins              split_bins
+start_parallel_computing
+                        Parallel computing and export variables to
+                        global Env.
+stop_parallel_computing
+                        Stop parallel computing
+time_transfer           Time Format Transfering
+time_varieble           time_varieble
+time_vars_process       Processing of Time or Date Variables
+train_test_split        Train-Test-Split
+training_model          Training model
+variable_process        variable_process
+vintage_function        vintage_function 'vintage_function' is for
+                        vintage analysis.
+woe_trans_all           WOE Transformation
+xgb_filter              Select Features using XGB
+xgb_params              Logistic Regression & Scorecard Parameters

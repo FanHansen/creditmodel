@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Parse party ctree rules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_ctree_rules {creditmodel}"><tr><td>get_ctree_rules {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Parse party ctree rules</h2>
+
+<h3>Description</h3>
+
+<p><code>get_ctree_rules</code> This function is used to parse party ctree rules and percentage of 1 under each rule.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_ctree_rules(tree_fit = NULL, train_dat = NULL, target = NULL,
+  test_dat = NULL, tree_control = list(p = 0.05, cp = 0.0001, xval = 1,
+  maxdepth = 10), seed = 46)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>tree_fit</code></td>
+<td>
+<p>A tree model object.</p>
+</td></tr>
+<tr valign="top"><td><code>train_dat</code></td>
+<td>
+<p>A data.frame of train.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>test_dat</code></td>
+<td>
+<p>A data.frame of test.</p>
+</td></tr>
+<tr valign="top"><td><code>tree_control</code></td>
+<td>
+<p>the list of parameters to control cutting initial breaks by decision tree.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>Random number seed. Default is 46.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with tree rules and 1 percent under each rule.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+train_test &lt;- train_test_split(UCICreditCard, split_type = "Random", prop = 0.8, save_data = FALSE)
+dat_train = train_test$train
+dat_test = train_test$test
+dat_train$default.payment.next.month = as.numeric(dat_train$default.payment.next.month)
+get_ctree_rules(tree_fit = NULL, train_dat = dat_train[, 8:26],
+target ="default.payment.next.month", test_dat = dat_test)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

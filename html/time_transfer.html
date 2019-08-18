@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Time Format Transfering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for time_transfer {creditmodel}"><tr><td>time_transfer {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Time Format Transfering</h2>
+
+<h3>Description</h3>
+
+<p><code>time_transfer</code> is for transfering time variables to time format.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+time_transfer(dat, date_cols = "DATE$|time$|date$|timestamp$|stamp$",
+  ex_cols = NULL, note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame</p>
+</td></tr>
+<tr valign="top"><td><code>date_cols</code></td>
+<td>
+<p>Names of time variable or regular expressions for finding time variables. Default is  &quot;DATE$|time$|date$|timestamp$|stamp$&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>Names of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical, outputs info. Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame with transfermed time variables.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#transfer a variable.
+dat = time_transfer(dat = lendingclub,date_cols = "issue_d")
+class(dat[,"issue_d"])
+#transfer a group of variables with similar name.
+dat = time_transfer(dat = lendingclub,date_cols = "_d$")
+class(dat[,"issue_d"])
+#transfer all time variables.
+dat = time_transfer(dat = lendingclub,date_cols = NULL)
+class(dat[,"issue_d"])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

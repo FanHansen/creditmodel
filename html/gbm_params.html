@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: GBM Parameters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for gbm_params {creditmodel}"><tr><td>gbm_params {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>GBM Parameters</h2>
+
+<h3>Description</h3>
+
+<p><code>gbm_params</code> is the list of parameters to train a GBM using in  <code><a href="training_model.html">training_model</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gbm_params(n.trees = 1000, interaction.depth = 6, shrinkage = 0.01,
+  bag.fraction = 0.5, train.fraction = 0.7, n.minobsinnode = 30,
+  cv.folds = 5, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n.trees</code></td>
+<td>
+<p>Integer specifying the total number of trees to fit. This is equivalent to the number of iterations and the number of basis functions in the additive expansion. Default is 100.</p>
+</td></tr>
+<tr valign="top"><td><code>interaction.depth</code></td>
+<td>
+<p>Integer specifying the maximum depth of each tree(i.e., the highest level of variable interactions allowed) . A value of 1 implies an additive model, a value of 2 implies a model with up to 2 - way interactions, etc. Default is 1.</p>
+</td></tr>
+<tr valign="top"><td><code>shrinkage</code></td>
+<td>
+<p>a shrinkage parameter applied to each tree in the expansion. Also known as the learning rate or step - size reduction; 0.001 to 0.1 usually work, but a smaller learning rate typically requires more trees. Default is 0.1 .</p>
+</td></tr>
+<tr valign="top"><td><code>bag.fraction</code></td>
+<td>
+<p>the fraction of the training set observations randomly selected to propose the next tree in the expansion. This introduces randomnesses into the model fit. If bag.fraction &lt; 1 then running the same model twice will result in similar but different fits. gbm uses the R random number generator so set.seed can ensure that the model can be reconstructed. Preferably, the user can save the returned gbm.object using save. Default is 0.5 .</p>
+</td></tr>
+<tr valign="top"><td><code>train.fraction</code></td>
+<td>
+<p>The first train.fraction * nrows(data) observations are used to fit the gbm and the remainder are used for computing out-of-sample estimates of the loss function.</p>
+</td></tr>
+<tr valign="top"><td><code>n.minobsinnode</code></td>
+<td>
+<p>Integer specifying the minimum number of observations in the terminal nodes of the trees. Note that this is the actual number of observations, not the total weight.</p>
+</td></tr>
+<tr valign="top"><td><code>cv.folds</code></td>
+<td>
+<p>Number of cross - validation folds to perform. If cv.folds &gt; 1 then gbm, in addition to the usual fit, will perform a cross - validation, calculate an estimate of generalization error returned in cv.error.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See details at: <code>gbm</code>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of parameters.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="training_model.html">training_model</a></code>, <code><a href="lr_params.html">lr_params</a></code>, <code><a href="xgb_params.html">xgb_params</a></code>, <code><a href="rf_params.html">rf_params</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

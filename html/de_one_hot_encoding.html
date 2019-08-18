@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Recovery One-Hot Encoding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for de_one_hot_encoding {creditmodel}"><tr><td>de_one_hot_encoding {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Recovery One-Hot Encoding</h2>
+
+<h3>Description</h3>
+
+<p><code>de_one_hot_encoding</code> is for one-hot encoding recovery processing
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+de_one_hot_encoding(dat_one_hot, cat_vars = NULL, na_act = TRUE,
+  note = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat_one_hot</code></td>
+<td>
+<p>A dat frame with the one hot encoding variables</p>
+</td></tr>
+<tr valign="top"><td><code>cat_vars</code></td>
+<td>
+<p>variables to be recovery processed, default is null, if null, find these variables through regular expressions .</p>
+</td></tr>
+<tr valign="top"><td><code>na_act</code></td>
+<td>
+<p>Logical,If true, the missing value is  assigned as &quot;Missing&quot;, if FALSE missing value is omitted, the default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical.Outputs info.Default is TRUE.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A dat frame with the one hot encoding recorery character variables
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="one_hot_encoding.html">one_hot_encoding</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#one hot encoding
+dat1 = one_hot_encoding(dat = UCICreditCard,
+cat_vars = c("SEX", "MARRIAGE"),
+merge_cat = TRUE, na_act = TRUE)
+#de one hot encoding
+dat2 = de_one_hot_encoding(dat_one_hot = dat1,
+cat_vars = c("SEX","MARRIAGE"),
+na_act = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

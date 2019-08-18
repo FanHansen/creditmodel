@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Logistic Regression &amp; Scorecard Parameters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for lr_params {creditmodel}"><tr><td>lr_params {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Logistic Regression &amp; Scorecard Parameters</h2>
+
+<h3>Description</h3>
+
+<p><code>lr_params</code> is the list of parameters to train a LR model or Scorecard using in  <code><a href="training_model.html">training_model</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+lr_params(tree_control = list(p = 0.02, cp = 0.00000001, xval = 5,
+  maxdepth = 10), bins_control = list(bins_num = 10, bins_pct = 0.05,
+  b_chi = 0.02, b_odds = 0.1, b_psi = 0.03, b_or = 0.15, mono = 0.2,
+  odds_psi = 0.15, kc = 1), best_lambda = "lambda.sim_sign",
+  sp_values = NULL, forced_in = NULL, obsweight = c(1, 1),
+  lasso = TRUE, vars_plot = TRUE, step_wise = TRUE,
+  score_card = TRUE, cor_p = 0.8, iv_i = 0.02, psi_i = 0.1, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>tree_control</code></td>
+<td>
+<p>the list of parameters to control cutting initial breaks by decision tree. See details at: <code><a href="get_tree_breaks.html">get_tree_breaks</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>bins_control</code></td>
+<td>
+<p>the list of parameters to control merging initial breaks. See details at: <code><a href="select_best_class.html">select_best_breaks</a></code>,<code><a href="select_best_class.html">select_best_class</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>best_lambda</code></td>
+<td>
+<p>Metheds of best lanmbda stardards using to filter variables by LASSO. There are 3 methods: (&quot;lambda.auc&quot;, &quot;lambda.ks&quot;, &quot;lambda.sim_sign&quot;) . Default is  &quot;lambda.auc&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>sp_values</code></td>
+<td>
+<p>Vaules will be in separate bins.e.g. list(-1, &quot;Missing&quot;)  means that -1 &amp; Missing as special values.Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>forced_in</code></td>
+<td>
+<p>Names of forced input variables. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>obsweight</code></td>
+<td>
+<p>An optional vector of  'prior weights' to be used in the fitting process. Should be NULL or a numeric vector. If you oversample or cluster diffrent datasets to training the LR model, you need to set this parameter to ensure that the probability of logistic regression output is the same as that before oversampling or segmentation. e.g.:There are 10,000 0 obs and 500 1 obs before oversampling or under-sampling, 5,000 0 obs and 3,000 1 obs after oversampling. Then this parameter should be set to c(10000/5000, 500/3000). Default is NULL..</p>
+</td></tr>
+<tr valign="top"><td><code>lasso</code></td>
+<td>
+<p>Logical, if TRUE, variables filtering by LASSO. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>vars_plot</code></td>
+<td>
+<p>Logical, if TRUE, plot distribution and correlation of input variables . Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>step_wise</code></td>
+<td>
+<p>Logical, stepwise method. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>score_card</code></td>
+<td>
+<p>Logical, transfer woe to a standard scorecard. If TRUE, Output scorecard, and score prediction, otherwise output probability. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>cor_p</code></td>
+<td>
+<p>The maximum threshold of correlation. Default: 0.8.</p>
+</td></tr>
+<tr valign="top"><td><code>iv_i</code></td>
+<td>
+<p>The minimum threshold of IV. 0.01 to 0.1 usually work. Default: 0.02</p>
+</td></tr>
+<tr valign="top"><td><code>psi_i</code></td>
+<td>
+<p>The maximum threshold of PSI. 0.1 to 0.3 usually work. Default: 0.1.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of parameters.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="training_model.html">training_model</a></code>, <code><a href="xgb_params.html">xgb_params</a></code>, <code><a href="gbm_params.html">gbm_params</a></code>, <code><a href="rf_params.html">rf_params</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

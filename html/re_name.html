@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Rename</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for re_name {creditmodel}"><tr><td>re_name {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Rename</h2>
+
+<h3>Description</h3>
+
+<p><code>re_name</code> is  for renaming variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+re_name(dat, oldname = c(), newname = c())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data frame with vairables to rename.</p>
+</td></tr>
+<tr valign="top"><td><code>oldname</code></td>
+<td>
+<p>Old names of vairables.</p>
+</td></tr>
+<tr valign="top"><td><code>newname</code></td>
+<td>
+<p>New names of vairables.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data with new variable names.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dt = re_name(dat = UCICreditCard, "default.payment.next.month" , "target")
+names(dt['target'])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

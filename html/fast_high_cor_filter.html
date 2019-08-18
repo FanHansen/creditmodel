@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: high_cor_filter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for fast_high_cor_filter {creditmodel}"><tr><td>fast_high_cor_filter {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>high_cor_filter</h2>
+
+<h3>Description</h3>
+
+<p><code>fast_high_cor_filter</code> In a highly correlated variable group, select the  variable with the highest IV.
+<code>high_cor_filter</code> In a highly correlated variable group, select the  variable with the highest IV.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fast_high_cor_filter(dat, p = 0.7, x_list = NULL, com_list = NULL,
+  ex_cols = NULL, save_data = FALSE, cor_class = TRUE,
+  parallel = FALSE, note = FALSE, file_name = NULL,
+  dir_path = tempdir(), ...)
+
+high_cor_filter(dat, com_list = NULL, x_list = NULL, ex_cols = NULL,
+  onehot = TRUE, parallel = TRUE, p = 0.7, file_name = NULL,
+  dir_path = tempdir(), save_data = FALSE, note = FALSE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>Threshold of correlation between features. Default is 0.7.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>com_list</code></td>
+<td>
+<p>A data.frame with important values of each variable. eg : IV_list</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>save_data</code></td>
+<td>
+<p>Logical, save results in locally specified folder. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>cor_class</code></td>
+<td>
+<p>Culculate catagery variables's correlation matrix. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Logical, parallel computing. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>note</code></td>
+<td>
+<p>Logical. Outputs info. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>file_name</code></td>
+<td>
+<p>The name for periodically saved results files. Default is &quot;Feature_selected_COR&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>dir_path</code></td>
+<td>
+<p>The path for periodically saved results files. Default is &quot;./variable&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional parameters.</p>
+</td></tr>
+<tr valign="top"><td><code>onehot</code></td>
+<td>
+<p>one-hot-encoding independent variables.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of selected variables.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_correlation_group.html">get_correlation_group</a></code>, <code><a href="reduce_high_cor.html">reduce_high_cor</a></code>, <code><a href="char_cor_vars.html">char_cor_vars</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# calculate iv for each variable.
+iv_list = feature_select_wrapper(dat_train = UCICreditCard[1:1000,], dat_test = NULL,
+target = "default.payment.next.month",
+occur_time = "apply_date",
+filter = c("IV"), cv_folds = 1, iv_cp = 0.01,
+ex_cols = "ID$|date$|default.payment.next.month$",
+save_data = FALSE, vars_name = FALSE)
+fast_high_cor_filter(dat = UCICreditCard[1:1000,],
+com_list = iv_list, save_data = FALSE,
+ex_cols = "ID$|date$|default.payment.next.month$",
+p = 0.9, cor_class = FALSE ,var_name = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

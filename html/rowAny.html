@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Functions for vector operation.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rowAny {creditmodel}"><tr><td>rowAny {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Functions for vector operation.</h2>
+
+<h3>Description</h3>
+
+<p>Functions for vector operation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rowAny(x)
+
+rowAllnas(x)
+
+colAllnas(x)
+
+colAllzeros(x)
+
+rowAll(x)
+
+rowCVs(x, na.rm = FALSE)
+
+rowSds(x, na.rm = FALSE)
+
+colSds(x, na.rm = TRUE)
+
+rowMaxs(x, na.rm = FALSE)
+
+rowMins(x, na.rm = FALSE)
+
+rowMaxMins(x, na.rm = FALSE)
+
+colMaxMins(x, na.rm = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A data.frame or Matrix.</p>
+</td></tr>
+<tr valign="top"><td><code>na.rm</code></td>
+<td>
+<p>Logical, remove NAs.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data.frame or Matrix.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+#any row has missing values
+row_amy =  rowAny(UCICreditCard[8:10])
+#rows which is all missing values
+row_na =  rowAllnas(UCICreditCard[8:10])
+#cols which is all missing values
+col_na =  colAllnas(UCICreditCard[8:10])
+#cols which is all zeros
+row_zero =  colAllzeros(UCICreditCard[8:10])
+#sum all numbers of a row
+row_all =  rowAll(UCICreditCard[8:10])
+#caculate cv of a row
+row_cv =  rowCVs(UCICreditCard[8:10])
+#caculate sd of a row
+row_sd =  rowSds(UCICreditCard[8:10])
+#caculate sd of a column
+col_sd =  colSds(UCICreditCard[8:10])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

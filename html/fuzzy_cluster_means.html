@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fuzzy Cluster means.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for fuzzy_cluster_means {creditmodel}"><tr><td>fuzzy_cluster_means {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fuzzy Cluster means.</h2>
+
+<h3>Description</h3>
+
+<p>This function is used for Fuzzy Clustering.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fuzzy_cluster_means(dat, kc = 2, sf = 2, nstart = 1,
+  max_iter = 100, epsm = 0.000001)
+
+fuzzy_cluster(dat, kc = 2, init_centers, sf = 3, max_iter = 100,
+  epsm = 0.000001)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame contained only predict variables.</p>
+</td></tr>
+<tr valign="top"><td><code>kc</code></td>
+<td>
+<p>The number of cluster center (default is 2),</p>
+</td></tr>
+<tr valign="top"><td><code>sf</code></td>
+<td>
+<p>Default is 2.</p>
+</td></tr>
+<tr valign="top"><td><code>nstart</code></td>
+<td>
+<p>The number of random groups (default is 1),</p>
+</td></tr>
+<tr valign="top"><td><code>max_iter</code></td>
+<td>
+<p>Max iteration number(default is 100) .</p>
+</td></tr>
+<tr valign="top"><td><code>epsm</code></td>
+<td>
+<p>Default is 1e-06.</p>
+</td></tr>
+<tr valign="top"><td><code>init_centers</code></td>
+<td>
+<p>Initial centers of obs.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Bezdek, James C. &quot;FCM: The fuzzy c-means clustering algorithm&quot;.
+Computers &amp; Geosciences (0098-3004),<a href="https://doi.org/10.1016/0098-3004(84)90020-7">https://doi.org/10.1016/0098-3004(84)90020-7</a>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

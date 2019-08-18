@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Min Max Normalization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for min_max_norm {creditmodel}"><tr><td>min_max_norm {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Min Max Normalization</h2>
+
+<h3>Description</h3>
+
+<p><code>min_max_norm</code> is for normalizing each column vector of matrix 'x' using min_max normalization
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+min_max_norm(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Vector</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Normalized vector
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+dat_s = apply(UCICreditCard[,12:14], 2, min_max_norm)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Random Forest Parameters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rf_params {creditmodel}"><tr><td>rf_params {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Random Forest Parameters</h2>
+
+<h3>Description</h3>
+
+<p><code>rf_params</code> is the list of parameters to train a Random Forest using in  <code><a href="training_model.html">training_model</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rf_params(ntree = 100, nodesize = 30, samp_rate = 0.5,
+  tune_rf = FALSE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>ntree</code></td>
+<td>
+<p>Number of trees to grow. This should not be set to too small a number, to ensure that every input row gets predicted at least a few times.</p>
+</td></tr>
+<tr valign="top"><td><code>nodesize</code></td>
+<td>
+<p>Minimum size of terminal nodes. Setting this number larger causes smaller trees to be grown (and thus take less time). Note that the default values are different for classification (1) and regression (5).</p>
+</td></tr>
+<tr valign="top"><td><code>samp_rate</code></td>
+<td>
+<p>Percentage of sample to draw. Default is 0.2.</p>
+</td></tr>
+<tr valign="top"><td><code>tune_rf</code></td>
+<td>
+<p>A logical.If TRUE, then tune Random Forest model.Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See details at : <a href="https://www.stat.berkeley.edu/~breiman/Using_random_forests_V3.1.pdf">https://www.stat.berkeley.edu/~breiman/Using_random_forests_V3.1.pdf</a>
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of parameters.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="training_model.html">training_model</a></code>, <code><a href="lr_params.html">lr_params</a></code>, <code><a href="gbm_params.html">gbm_params</a></code>, <code><a href="xgb_params.html">xgb_params</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

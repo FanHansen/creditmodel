@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ks_value</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ks_value {creditmodel}"><tr><td>ks_value {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ks_value</h2>
+
+<h3>Description</h3>
+
+<p><code>ks_value</code> is for get plots for a  variable.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ks_value(dat_pred = NULL, target = NULL, score = NULL, g = 20,
+  breaks = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat_pred</code></td>
+<td>
+<p>A data frame with predict prob or score.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>score</code></td>
+<td>
+<p>The name of prob or score variable.</p>
+</td></tr>
+<tr valign="top"><td><code>g</code></td>
+<td>
+<p>Number of breaks for prob or score.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks</code></td>
+<td>
+<p>Splitting points of prob or score.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+sub = cv_split(UCICreditCard, k = 30)[[1]]
+dat = UCICreditCard[sub,]
+dat = re_name(dat, "default.payment.next.month", "target")
+dat = data_cleansing(dat, target = "target", obs_id = "ID",
+occur_time = "apply_date", miss_values = list("", -1))
+
+train_test &lt;- train_test_split(dat, split_type = "OOT", prop = 0.7,
+                                occur_time = "apply_date")
+dat_train = train_test$train
+dat_test = train_test$test
+x_list = c("PAY_0", "LIMIT_BAL", "PAY_AMT5", "PAY_3", "PAY_2")
+Formula = as.formula(paste("target", paste(x_list, collapse = ' + '), sep = ' ~ '))
+set.seed(46)
+lr_model = glm(Formula, data = dat_train[, c("target", x_list)], family = binomial(logit))
+
+dat_train$pred_LR = round(predict(lr_model, dat_train[, x_list], type = "response"), 5)
+dat_test$pred_LR = round(predict(lr_model, dat_test[, x_list], type = "response"), 5)
+ks_value(dat_pred = dat_train,
+target = "target", score ="pred_LR", g = 20)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

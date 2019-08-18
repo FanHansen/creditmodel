@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compare the two highly correlated variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for reduce_high_cor {creditmodel}"><tr><td>reduce_high_cor {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compare the two highly correlated variables</h2>
+
+<h3>Description</h3>
+
+<p><code>reduce_high_cor</code> is function for comparing the two highly correlated variables, select a variable with the largest IV value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reduce_high_cor(cor_mat, p = 0.9, x_list = NULL, com_list = NULL,
+  retain = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cor_mat</code></td>
+<td>
+<p>A correlation matrix.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>The threshold of high correlation.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>com_list</code></td>
+<td>
+<p>A data.frame with important values of each variable. eg : IV_list.</p>
+</td></tr>
+<tr valign="top"><td><code>retain</code></td>
+<td>
+<p>Logical, output selected variables, if FALSE, output filtered variables.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of selected variables.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

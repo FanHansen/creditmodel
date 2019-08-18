@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Training model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for training_model {creditmodel}"><tr><td>training_model {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Training model</h2>
+
+<h3>Description</h3>
+
+<p><code>training_model</code> Model builder
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+training_model(model_name = "mymodel", dat, dat_test = NULL,
+  target = NULL, occur_time = NULL, obs_id = NULL, x_list = NULL,
+  ex_cols = NULL, pos_flag = NULL, prop = 0.7, preproc = TRUE,
+  one_hot = FALSE, miss_values = NULL, outlier_proc = TRUE,
+  missing_proc = TRUE, feature_filter = list(filter = c("IV", "PSI",
+  "COR", "XGB"), iv_cp = 0.02, psi_cp = 0.1, xgb_cp = 0, cv_folds = 1,
+  hopper = FALSE), algorithm = list("LR", "XGB", "GBM", "RF"),
+  LR.params = lr_params(), XGB.params = xgb_params(),
+  GBM.params = gbm_params(), RF.params = rf_params(),
+  breaks_list = NULL, parallel = FALSE, cores_num = NULL,
+  save_pmml = FALSE, plot_show = FALSE, model_path = tempdir(),
+  seed = 46, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>model_name</code></td>
+<td>
+<p>A string, name of the project. Default is &quot;mymodel&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame with independent variables and target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_test</code></td>
+<td>
+<p>A data.frame of test data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The name of target variable.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>obs_id</code></td>
+<td>
+<p>The name of ID of observations or key variable of data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>Names of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>pos_flag</code></td>
+<td>
+<p>The value of positive class of target variable, default: &quot;1&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>prop</code></td>
+<td>
+<p>Percentage of train-data after the partition. Default: 0.7.</p>
+</td></tr>
+<tr valign="top"><td><code>preproc</code></td>
+<td>
+<p>Logical. Preprocess data. Default is TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>one_hot</code></td>
+<td>
+<p>Logical. If TRUE, one-hot_encoding  of category variables. Default is FASLE.</p>
+</td></tr>
+<tr valign="top"><td><code>miss_values</code></td>
+<td>
+<p>Other extreme value might be used to represent missing values, e.g: -9999, -9998. These miss_values will be encoded to -1 or &quot;Missing&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>outlier_proc</code></td>
+<td>
+<p>Logical. If TRUE,  Outliers processing using Kmeans and Local Outlier Factor. Default is TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>missing_proc</code></td>
+<td>
+<p>Logical. If TRUE, missing value analysis and process missing value by knn imputation or central impulation or random imputation. Default is TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>feature_filter</code></td>
+<td>
+<p>Parameters for selecting important and stable features.See details at: <code><a href="feature_select_wrapper.html">feature_select_wrapper</a></code></p>
+</td></tr>
+<tr valign="top"><td><code>algorithm</code></td>
+<td>
+<p>Algorithms for training a model. list(&quot;LR&quot;, &quot;XGB&quot;, &quot;GBDT&quot;, &quot;RF&quot;) are available.</p>
+</td></tr>
+<tr valign="top"><td><code>LR.params</code></td>
+<td>
+<p>Parameters of logistic regression &amp; scorecard. See details at :  <code><a href="lr_params.html">lr_params</a></code>.
+</p>
+
+<ul>
+<li> <p><code>tree_control</code> the list of parameters to control cutting initial breaks by decision tree. See details at: <code><a href="get_tree_breaks.html">get_tree_breaks</a></code>
+</p>
+</li>
+<li> <p><code>bins_control</code> the list of parameters to control merging initial breaks. See details at: <code><a href="select_best_class.html">select_best_breaks</a></code>,<code><a href="select_best_class.html">select_best_class</a></code>
+</p>
+</li>
+<li> <p><code>best_lambda</code> Metheds of best lanmbda stardards using to filter variables by LASSO. There are 3 methods: (&quot;lambda.auc&quot;, &quot;lambda.ks&quot;, &quot;lambda.sim_sign&quot;) . Default is  &quot;lambda.sim_sign&quot;.
+</p>
+</li>
+<li> <p><code>obsweight</code> An optional vector of  'prior weights' to be used in the fitting process. Should be NULL or a numeric vector. If you oversample or cluster diffrent datasets to training the LR model, you need to set this parameter to ensure that the probability of logistic regression output is the same as that before oversampling or segmentation. e.g.:There are 10,000 0 obs and 500 1 obs before oversampling or under-sampling, 5,000 0 obs and 3,000 1 obs after oversampling. Then this parameter should be set to c(10000/5000, 500/3000). Default is NULL..
+</p>
+</li>
+<li> <p><code>forced_in</code>Names of forced input variables. Default is NULL.
+</p>
+</li>
+<li> <p><code>sp_values</code> Vaules will be in separate bins.e.g. list(-1, &quot;Missing&quot;)  means that -1 &amp; Missing as special values.Default is NULL.
+</p>
+</li>
+<li> <p><code>step_wise</code> Logical, stepwise method. Default is TRUE.
+</p>
+</li>
+<li> <p><code>score_card</code> Logical, transfer woe to a standard scorecard. If TRUE, Output scorecard, and score prediction, otherwise output probability. Default is TRUE.
+</p>
+</li>
+<li> <p><code>cor_p</code> The maximum threshold of correlation.0 &lt;= cor_p &lt;=1; 0.5 to 0.8 usually work.  Default: 0.7.
+</p>
+</li>
+<li> <p><code>iv_i</code> The minimum threshold of IV. 0 &lt; iv_i ; 0.01 to 0.1 usually work. Default: 0.01
+</p>
+</li>
+<li> <p><code>psi_i</code> The maximum threshold of PSI.  0 &lt;= psi_i &lt;=1; 0.05 to 0.2 usually work. Default: 0.1
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>XGB.params</code></td>
+<td>
+<p>Parameters of xgboost. See details at :  <code><a href="xgb_params.html">xgb_params</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>GBM.params</code></td>
+<td>
+<p>Parameters of GBM. See details at :  <code><a href="gbm_params.html">gbm_params</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>RF.params</code></td>
+<td>
+<p>Parameters of Random Forest. See details at :  <code><a href="rf_params.html">rf_params</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>breaks_list</code></td>
+<td>
+<p>A table containing a list of splitting points for each independent variable. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>parallel</code></td>
+<td>
+<p>Default is FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>cores_num</code></td>
+<td>
+<p>The number of CPU cores to use.</p>
+</td></tr>
+<tr valign="top"><td><code>save_pmml</code></td>
+<td>
+<p>Logical, save model in PMML format. Default is TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>plot_show</code></td>
+<td>
+<p>Logical, show model performance in current graphic device. Default is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>model_path</code></td>
+<td>
+<p>The path for periodically saved data file. Default is <code>tempdir()</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>Random number seed. Default is 46.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list containing Model Objects.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="train_test_split.html">train_test_split</a></code>,<code><a href="data_cleansing.html">data_cleansing</a></code>, <code><a href="feature_select_wrapper.html">feature_select_wrapper</a></code>,   <code><a href="lr_params.html">lr_params</a></code>, <code><a href="xgb_params.html">xgb_params</a></code>, <code><a href="gbm_params.html">gbm_params</a></code>, <code><a href="rf_params.html">rf_params</a></code>,<code><a href="fast_high_cor_filter.html">fast_high_cor_filter</a></code>,<code><a href="get_breaks_all.html">get_breaks_all</a></code>,<code><a href="lasso_filter.html">lasso_filter</a></code>, <code><a href="woe_trans_all.html">woe_trans_all</a></code>, <code><a href="get_logistic_coef.html">get_logistic_coef</a></code>, <code><a href="score_transfer.html">score_transfer</a></code>,<code><a href="get_score_card.html">get_score_card</a></code>, <code><a href="ks_table.html">model_key_index</a></code>,<code><a href="ks_table.html">ks_psi_plot</a></code>,<code><a href="get_plots.html">get_plots</a></code>,<code><a href="ks_table.html">ks_table_plot</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+sub = cv_split(UCICreditCard, k = 40)[[1]]
+dat = UCICreditCard[sub,]
+dat = re_name(dat, "default.payment.next.month", "target")
+dat = data_cleansing(dat, target = "target", obs_id = "ID",
+occur_time = "apply_date", miss_values = list("", -1, -2))
+train_test &lt;- train_test_split(dat, split_type = "OOT", prop = 0.7,
+                                occur_time = "apply_date")
+dat_train = train_test$train
+dat_test = train_test$test
+x_list = c("PAY_0", "LIMIT_BAL", "PAY_AMT5", "PAY_3")
+B_model = training_model(dat = dat_train,
+model_name = "UCICreditCard", target = "target", x_list = x_list,
+occur_time = "apply_date", obs_id = "ID", dat_test = dat_test,
+                           preproc = FALSE,
+                           feature_filter = NULL,
+                           algorithm = list("LR"),
+                           LR.params = lr_params(lasso = FALSE,
+                           step_wise = FALSE, vars_plot = FALSE),
+                           XGB.params = xgb_params(),
+                           breaks_list = NULL,
+                           parallel = FALSE, cores_num = NULL,
+                           save_pmml = FALSE, plot_show = FALSE,
+                           model_path = tempdir(),
+                           seed = 46)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

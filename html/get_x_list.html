@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get X List.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_x_list {creditmodel}"><tr><td>get_x_list {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get X List.</h2>
+
+<h3>Description</h3>
+
+<p><code>get_x_list</code> is  for getting intersect names of x_list, train and test.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_x_list(x_list = NULL, dat_train = NULL, dat_test = NULL,
+  ex_cols = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x_list</code></td>
+<td>
+<p>Names of independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_train</code></td>
+<td>
+<p>A data.frame with independent variables.</p>
+</td></tr>
+<tr valign="top"><td><code>dat_test</code></td>
+<td>
+<p>Another data.frame.</p>
+</td></tr>
+<tr valign="top"><td><code>ex_cols</code></td>
+<td>
+<p>A list of excluded variables. Regular expressions can also be used to match variable names. Default is NULL.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list contains names of variables
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="get_names.html">get_names</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x_list = get_x_list(x_list = NULL,dat_train = UCICreditCard,
+ex_cols = c("default.payment.next.month","ID$|_date$"))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

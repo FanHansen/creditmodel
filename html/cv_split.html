@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Stratified Folds</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cv_split {creditmodel}"><tr><td>cv_split {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Stratified Folds</h2>
+
+<h3>Description</h3>
+
+<p>this function creates stratified folds for cross validation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cv_split(dat, k = 5, occur_time = NULL, seed = 46)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame.</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>k is an integer specifying the number of folds.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>time variable for creating OOT folds. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>seed</code></td>
+<td>
+<p>A seed. Default is 46.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a list of indices
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+sub = cv_split(UCICreditCard, k = 30)[[1]]
+dat = UCICreditCard[sub,]
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

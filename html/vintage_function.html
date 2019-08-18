@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: vintage_function 'vintage_function' is for vintage analysis.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vintage_function {creditmodel}"><tr><td>vintage_function {creditmodel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>vintage_function
+<code>vintage_function</code> is for vintage analysis.</h2>
+
+<h3>Description</h3>
+
+<p>This function is not intended to be used by end user.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vintage_function(dat, obs_id = NULL, occur_time = NULL, MOB = NULL,
+  period = "monthly", status = NULL, amount = NULL, by_out = "cnt",
+  start_date = NULL, end_date = NULL, dead_status = 30)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dat</code></td>
+<td>
+<p>A data.frame contained id, occur_time, mob, status ...</p>
+</td></tr>
+<tr valign="top"><td><code>obs_id</code></td>
+<td>
+<p>The name of ID of observations or key variable of data. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>occur_time</code></td>
+<td>
+<p>The name of the variable that represents the time at which each observation takes place.</p>
+</td></tr>
+<tr valign="top"><td><code>MOB</code></td>
+<td>
+<p>Mobility of book</p>
+</td></tr>
+<tr valign="top"><td><code>period</code></td>
+<td>
+<p>Period of event to analysiss. Default is &quot;monthly&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>status</code></td>
+<td>
+<p>Status of observations</p>
+</td></tr>
+<tr valign="top"><td><code>amount</code></td>
+<td>
+<p>The name of variable representing amount. Default is NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>by_out</code></td>
+<td>
+<p>Output: amount (amt) or count (cnt)</p>
+</td></tr>
+<tr valign="top"><td><code>start_date</code></td>
+<td>
+<p>The earliest occurrence time of observations.</p>
+</td></tr>
+<tr valign="top"><td><code>end_date</code></td>
+<td>
+<p>The latest occurrence time of observations.</p>
+</td></tr>
+<tr valign="top"><td><code>dead_status</code></td>
+<td>
+<p>Status of dead observations.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>creditmodel</em> version 1.1.2 <a href="00Index.html">Index</a>]</div>
+</body></html>
