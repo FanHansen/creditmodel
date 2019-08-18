@@ -1,6 +1,6 @@
 # creditmodel
 creditmodel, 模型，评分卡，scorecard, vintage, automatic modeling
-# **creditmodel: Toolkit  for Credit Modeling Analysis and Visualization**
+# **Toolkit  for Credit Modeling Analysis and Visualization**
 
 Dong Fan
 
