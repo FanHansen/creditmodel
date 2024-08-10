@@ -23,11 +23,7 @@ You can install the stable release of **creditmodel** from CRAN with:
 install.packages('creditmodel')
 ```
 
-You can also install the development version of  **creditmodel** from Github with:
 
-```R
-remotes::install_github("ShixiangWang/sigminer")
-```
 
 **Loading**
 
